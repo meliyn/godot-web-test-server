@@ -11,6 +11,8 @@ export async function serve(options: Options) {
     const app = new Application();
 
     app.use(async (ctx) => {
+        ctx.response.headers.append("Cross-Origin-Opener-Policy", "same-origin");
+        ctx.response.headers.append("Cross-Origin-Embedder-Policy", "require-corp");
         await ctx.send({
             root: options.baseUrl,
             index: options.index,
