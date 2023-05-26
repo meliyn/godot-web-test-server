@@ -1,0 +1,42 @@
+on:
+    push:
+        branches:
+            - main
+
+jobs:
+    build-windows:
+        runs-on: windows-2022
+        steps:
+            - uses: actions/checkout@v3
+            - uses: denoland/setup-deno@v1
+              with:
+                  deno-version: "1.34.0"
+            - run: deno compile -A ./godot-web-test-server.ts
+            - uses: actions/upload-artifact@v3
+              with:
+                  name: Windows
+                  path: godot-web-test-server.exe
+    builds-linux:
+        runs-on: ubuntu-22.04
+        steps:
+            - uses: actions/checkout@v3
+            - uses: denoland/setup-deno@v1
+              with:
+                  deno-version: "1.34.0"
+            - run: deno compile -A ./godot-web-test-server.ts
+            - uses: actions/upload-artifact@v3
+              with:
+                  name: Linux
+                  path: godot-web-test-server
+    builds-macos:
+        runs-on: macos-12
+        steps:
+            - uses: actions/checkout@v3
+            - uses: denoland/setup-deno@v1
+              with:
+                  deno-version: "1.34.0"
+            - run: deno compile -A ./godot-web-test-server.ts
+            - uses: actions/upload-artifact@v3
+              with:
+                  name: macOS
+                  path: godot-web-test-server
