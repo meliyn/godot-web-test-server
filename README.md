@@ -6,13 +6,13 @@ To create a test localhost server to serve Godot Engine 4's HTML5 export!
 
 It's because Godot 4 requires SharedArrayBuffer, which requires some headers. Therefore, I created this so I can just run this and test it.
 
-## How to use?
-
-### Installation
+## Installation
 
 ```bash
-deno install https://raw.githubusercontent.com/meliyn/godot-web-test-server/main/godot-web-test-server.ts
+deno install -Af https://raw.githubusercontent.com/meliyn/godot-web-test-server/main/godot-web-test-server.ts
 ```
+
+## Usage
 
 ```text
 Usage: godot-web-test-server serve [options]
