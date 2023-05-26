@@ -18,14 +18,17 @@ deno install -Af https://raw.githubusercontent.com/meliyn/godot-web-test-server/
 Usage: godot-web-test-server serve [options]
 
 Options:
-  -d, --baseDir <dir>  Base Directory (default: cwd)
-  -i, --index <name>   Index (default: "index.html")
+  -d, --baseDir <dir>  Base directory (default: Deno.cwd())
+  -i, --index <name>   The root HTML file name (default: "index.html")
+  -l, --log            Enable logging (default: false)
   -p, --port <port>    Port (default: "8080")
   -h, --help           display help for command
 ```
 
-Example:
+### Example
+
+Serve `./builds/1/`'s `My Game.html` in `0.0.0.0:3000`
 
 ```bash
-godot-web-test-server serve -d ./build/ -i "My Game.html" -p 3000
+godot-web-test-server serve -d ./builds/1/ -i "My Game.html" -p 3000
 ```

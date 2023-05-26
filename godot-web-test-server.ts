@@ -38,9 +38,8 @@ if (import.meta.main) {
     program
         .command("serve")
         .option("-d, --baseDir <dir>", "Base directory", Deno.cwd())
-        .option("-h, --http", "Disable HTTPS", false)
         .option("-i, --index <name>", "The root HTML file name", "index.html")
-        .option("-l, --log", "Log?", false)
+        .option("-l, --log", "Enable logging", false)
         .option("-p, --port <port>", "Port", "8080")
         .action((options) => {
             serve({
