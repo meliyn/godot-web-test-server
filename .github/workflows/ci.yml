@@ -29,7 +29,7 @@ jobs:
             - uses: actions/upload-artifact@v3
               with:
                   name: Linux
-                  path: godot-web-test-server
+                  path: godot-web-test-server-linux
     builds-macos:
         runs-on: macos-12
         steps:
@@ -42,4 +42,4 @@ jobs:
             - uses: actions/upload-artifact@v3
               with:
                   name: macOS
-                  path: godot-web-test-server
+                  path: godot-web-test-server-macos
