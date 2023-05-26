@@ -14,19 +14,21 @@ export async function serve(options: Options) {
         ctx.response.headers.append("Cross-Origin-Opener-Policy", "same-origin");
         ctx.response.headers.append("Cross-Origin-Embedder-Policy", "require-corp");
         await ctx.send({
-            root: options.baseUrl,
             index: options.index,
+            root: options.baseUrl,
         });
     });
 
+    console.log(`Server is running on http://localhost:${options.port}/`);
     await app.listen({ port: options.port });
 }
 
 if (import.meta.main) {
+    program.name("godot-web-test-server");
     program
         .command("serve")
-        .option("-d, --baseDir <dir>", "Base Directory", Deno.cwd())
-        .option("-i, --index <name>", "Index", "index.html")
+        .option("-d, --baseDir <dir>", "Base directory", Deno.cwd())
+        .option("-i, --index <name>", "The root HTML file name", "index.html")
         .option("-p, --port <port>", "Port", "8080")
         .action((options) => {
             serve({
